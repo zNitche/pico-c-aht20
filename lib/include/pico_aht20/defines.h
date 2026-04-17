@@ -1,0 +1,4 @@
+#pragma once
+
+#define PICO_AHT20_I2C_DEFAULT_ADDRESS _u(0x38)
+#define PICO_AHT20_I2C_BAUDRATE 400000
