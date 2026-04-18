@@ -2,7 +2,8 @@
 PicoSDK (C) module for AHT20 temperature &amp; humidity sensor
 
 #### Features
-To be written soon...
+- sensor initialization & state management
+- reading temperature & humidity
 
 #### Usage
 Example at [example.c](src/example.c)
