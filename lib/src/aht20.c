@@ -19,7 +19,7 @@ void aht20_setup_i2c(AHT20_I2C i2c_c) {
 bool aht20_is_initialized(AHT20_I2C i2c_c) {
     uint8_t out[1] = {0x00};
 
-    _read_from_reg(i2c_c, 0x00, 1, out);
+    _aht20_read_from_reg(i2c_c, 0x00, 1, out);
 
     return out[0] != 0x18;
 }
@@ -27,22 +27,22 @@ bool aht20_is_initialized(AHT20_I2C i2c_c) {
 void aht20_initialize(AHT20_I2C i2c_c) {
     uint8_t buff[3] = {0xBE, 0x08, 0x00};
 
-    _write_to_reg(i2c_c, 0x00, buff, sizeof(buff));
+    _aht20_write_to_reg(i2c_c, 0x00, buff, sizeof(buff));
 }
 
 void aht20_reset(AHT20_I2C i2c_c) {
     uint8_t buff[1] = {0xBA};
 
-    _write_to_reg(i2c_c, 0x00, buff, sizeof(buff));
+    _aht20_write_to_reg(i2c_c, 0x00, buff, sizeof(buff));
 }
 
 void aht20_read_raw_data(AHT20_I2C i2c_c, uint8_t output_buff[6]) {
     uint8_t command_buff[3] = {0xAC, 0x33, 0x00};
 
-    _write_to_reg(i2c_c, 0x00, command_buff, sizeof(command_buff));
+    _aht20_write_to_reg(i2c_c, 0x00, command_buff, sizeof(command_buff));
     sleep_ms(100);
 
-    _read_from_reg(i2c_c, 0x00, 6, output_buff);
+    _aht20_read_from_reg(i2c_c, 0x00, 6, output_buff);
 }
 
 void aht20_get_measurements(AHT20_I2C i2c_c, float output_buff[2]) {
