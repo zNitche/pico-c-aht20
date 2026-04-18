@@ -2,7 +2,7 @@ file(GLOB PICO_AHT20_EXECS ${CMAKE_CURRENT_LIST_DIR}/src/*.c)
 
 cmake_minimum_required(VERSION 3.27)
 
-project(pico_aht20 VERSION 1.0.0)
+project(pico_aht20 VERSION 1.0.1)
 
 add_library(pico_aht20 INTERFACE)
 
